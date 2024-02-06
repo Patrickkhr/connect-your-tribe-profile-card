@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: system-ui;
+  color: #10214e;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* Article geeft de breedte, hoogte en de positie aan van het visitekaartje */
+article {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50vw;
+  max-width: 25em;
+  min-width: 20em;
+  border-radius: 1rem;
+  
+  box-shadow: 0 0 20px 20px rgba(0,0,0,.1);
+  transition: .25s;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+h1 {
+  margin-top: 0;
+  color: black;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+/* .foto  geeft de styling aan de foto s*/
+.foto {
+  background-image: url(../images/profiel-foto.jpg);
+  width: 85%;
+  min-height: 35vh;
+  height: 35vh;
+  border-radius: 1em;
+  margin: 2rem;
+  transition: .25s .15s;
+  background-size: cover;
+  background-position: center;
+  padding: 10em;
+}
+
+p { 
+  margin: 0;
+}
+
+.hover {
+  width: 100%;
+  padding: 0.5rem 0rem;
+  border-radius: 0 0 1rem 1rem;
+  text-align: center;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 3em;
+}
+
+.card-below {
+  background-color: black;
+  border-radius: 0 0 1rem 1rem;
+}
+
+.info {
+  height: 0;
+  opacity: 0;
+  margin-left: 2em;
+  margin-right: 2em;
+  transition: opacity 1s ease, height 1s ease;
+}
+
+.info-tekst {
+  font-size: 0.7em;
+}
+
+.about-tekst {
+  margin-bottom: 2em;
+}
+
+.icons {
+  display: flex;
+}
+
+.icon1 {
+  margin-right: 2em;
+  margin-bottom: 2em;
+  width: 2em;
+  height: auto;
+}
+
+.icon2 {
+  width: 2em;
+  height: auto;
+}
+
+.container:hover .info {
+  animation: none;
+  opacity: 1;
+  height: 100%;
+} 
+
+/* .container:hover zorgt ervoor dat het handje en de padding verdwijnt bij hover */
+.container:hover .hover {
+  padding: 0;
+  opacity: 0;
+}
+/* Met de keyframes word de tekst langzaam zichtbaar door de opacity */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+  }
+}
+/* .wave zorgt ervoor dat het handje beweegt voor 2.5 seconden  */
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.5s;       
+  animation-iteration-count: infinite; 
+  transform-origin: 55% 70%;      
+  display: inline-block;
+}
+
+/* De keyframes zorgen ervoor dat het handje beweegt van links naar rechts */
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) } 
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }
+  100% { transform: rotate( 0.0deg) }
+}
+
+/* @media zorgt ervoor dat de kaart automatisch open staat bij beeldschermen tot 800pixels*/
+@media only screen and (max-width: 800px) {
+  .info {
+    height: 100%;
+    opacity: 1;
+  }
+  .foto {
+    padding: 0;
+  }
+
+}
+
+
+

@@ -1,137 +1,108 @@
 * {
   box-sizing: border-box;
-}
-
-html {
-  height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   font-family: system-ui;
-  color: #10214e;
-}
-
-.bold {
-  font-weight: bold;
-}
-
-/* Article geeft de breedte, hoogte en de positie aan van het visitekaartje */
-article {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  width: 50vw;
-  max-width: 25em;
-  min-width: 20em;
-  border-radius: 1rem;
-  
-  box-shadow: 0 0 20px 20px rgba(0,0,0,.1);
-  transition: .25s;
 }
 
-.container {
+section {
   display: flex;
-  flex-direction: column;
+  margin: auto;
+  height: 400px;
+  width: auto;
+  border-radius: 0 3em 0 3em;
+  box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.24);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+section > div {
+  background-image: url(/images/profiel-foto.jpg);
   width: 100%;
-}
-
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-h1 {
-  margin-top: 0;
-  color: black;
-  font-size: 3em;
-  margin-bottom: 0.5em;
-}
-
-/* .foto  geeft de styling aan de foto s*/
-.foto {
-  background-image: url(../images/profiel-foto.jpg);
-  width: 85%;
-  min-height: 35vh;
-  height: 35vh;
-  border-radius: 1em;
-  margin: 2rem;
+  border-radius: 0 0 0 1rem;
   transition: .25s .15s;
   background-size: cover;
   background-position: center;
-  padding: 10em;
+  padding: 8em;
 }
 
-p { 
-  margin: 0;
+section:hover {
+  box-shadow: 0 0 20px 20px rgba(0,0,0,.1);
+  border-radius: 1em 0 1em 0;
+  max-width: 55em;
 }
 
-.hover {
+section:hover > div {
+  width: 50%;
+  margin: 1em;
+  border-radius: 1em 0 1em 0;
+  transition: none;
+}
+
+section:hover article > div:last-of-type {
+  display: block;
+}
+
+section:hover article > div:first-of-type {
+  display: none;
+}
+
+article {
+  display: flex;
+  align-items: center;
+}
+
+article > div:first-of-type {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  border-radius: 0 1em 0 0;
   width: 100%;
-  padding: 0.5rem 0rem;
-  border-radius: 0 0 1rem 1rem;
-  text-align: center;
-  color: white;
-  font-family: 'Oswald', sans-serif;
+  height: 100%;
+  font-size: 3em;
+  padding: 1em;
+}
+
+article > div:last-of-type {
+  padding: 1em;
+  display: none;
+}
+
+article > div:last-of-type > p:last-of-type {
+  margin-top: 1em;
+}
+
+article p {
+  width: 80%;
+}
+
+article h1 {
+  margin-top: 0;
+  color: black;
   font-size: 3em;
 }
 
-.card-below {
-  background-color: black;
-  border-radius: 0 0 1rem 1rem;
-}
-
-.info {
-  height: 0;
-  opacity: 0;
-  margin-left: 2em;
-  margin-right: 2em;
-  transition: opacity 1s ease, height 1s ease;
-}
-
-.info-tekst {
-  font-size: 0.7em;
-}
-
-.about-tekst {
-  margin-bottom: 2em;
-}
-
-.icons {
+.linksWrapper {
   display: flex;
+  margin-top: 1em;
 }
 
-.icon1 {
-  margin-right: 2em;
-  margin-bottom: 2em;
-  width: 2em;
-  height: auto;
+.linksWrapper a {
+  width: 25px;
+  height: 25px;
 }
 
-.icon2 {
-  width: 2em;
-  height: auto;
+.linksWrapper a:first-of-type {
+  margin-right: 1em;
 }
 
-.container:hover .info {
-  animation: none;
-  opacity: 1;
-  height: 100%;
-} 
-
-/* .container:hover zorgt ervoor dat het handje en de padding verdwijnt bij hover */
-.container:hover .hover {
-  padding: 0;
-  opacity: 0;
-}
 /* Met de keyframes word de tekst langzaam zichtbaar door de opacity */
 @keyframes fadeIn {
   0% {
@@ -143,13 +114,15 @@ p {
     height: 100%;
   }
 }
-/* .wave zorgt ervoor dat het handje beweegt voor 2.5 seconden  */
-.wave {
+
+/* deze code zorgt ervoor dat het handje beweegt voor 2.5 seconden  */
+article div:first-of-type p {
   animation-name: wave-animation;
   animation-duration: 2.5s;       
   animation-iteration-count: infinite; 
   transform-origin: 55% 70%;      
   display: inline-block;
+  text-align: center;
 }
 
 /* De keyframes zorgen ervoor dat het handje beweegt van links naar rechts */
@@ -166,15 +139,6 @@ p {
 
 /* @media zorgt ervoor dat de kaart automatisch open staat bij beeldschermen tot 800pixels*/
 @media only screen and (max-width: 800px) {
-  .info {
-    height: 100%;
-    opacity: 1;
-  }
-  .foto {
-    padding: 0;
-  }
+
 
 }
-
-
-

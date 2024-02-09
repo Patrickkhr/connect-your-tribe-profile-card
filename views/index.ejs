@@ -1,22 +1,21 @@
 <%- include('./partials/head') %>
 
-<article>
-  <div class="foto"></div>
-  <div class="container">
-    <div id="element" class="info hidden">
-      <p class="info-tekst"><em>Creative Frontend Developer</em></p>
-      <div class=""></div>
-      <h1 class="info-header">Patrick Hordijk</h1>
-      <p class="about-tekst">Hoi mijn naam is Patrick en ik design en bouw websites. Ik ben gespecialiseerd in <span class="bold">HTML</span>, <span class="bold">CSS</span> en <span class="bold">Javascript</span>. In mijn vrije tijd voetbal ik bij FC Delta Sports.</p>
-      <div class="icons">
-        <a href="https://www.linkedin.com/in/patrick-hordijk-a639981b7/" target="_blank"><img class="icon1" src="images/linkedin.svg" alt="Linkedin_logo"></a>
-        <a href="#website" target="_blank"><img class="icon2" src="images/globe-solid.svg" alt="globe_logo"></a>
+<section>
+  <div></div>
+  <article>
+    <div>
+      <p><%= data.custom.wave %></p>
+    </div>
+    <div>
+      <p><em><%= data.custom.tagline %></em></p>
+      <h1><%= data.name %> <%= data.surname%></h1>
+      <p><%- data.bio %></p>
+      <div class="linksWrapper">
+        <a href="#"><img src="/images/linkedin.svg" alt="LinkedIn"></a>
+        <a href="#"><img src="/images/globe-solid.svg" alt="website"></a>
       </div>
     </div>
-    <div class="card-below">
-      <p class="wave hover">👋</p>
-    </div>
-  </div>
-</article>
+  </article>
+</section>
 
 <%- include('./partials/foot') %>
